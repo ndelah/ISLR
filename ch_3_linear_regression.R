@@ -10,7 +10,6 @@ names(Boston)
 ?Boston
 
 lm.fit=lm(medv~lstat,Boston)
-lm.fit
 
 summary(lm.fit) # lstat is statistically significant from 0, but the model doesn't explain much
 names(lm.fit)
@@ -59,3 +58,14 @@ summary(lm.fit)
 summary(lm(medv~lstat*age,data=Boston))
 
 
+### 3.6.5 Non-linear Transformations of the Predictors #### 
+# I() is a necessary wrapping to create non linear transformations as ^ has diffrent meaning
+lm.fit2 = lm(medv~lstat +I(lstat^2),data=Boston)
+summary(lm.fit2)
+plot(lm.fit2) # The adjusted R squared is 0.63 which is much better for just one variable
+anova(lm.fit,lm.fit2) #The p test confirms that the two models are significantly different from each other
+par(mfrow=c(2,2))
+plot(lm.fit2)
+# Higher order polynomials
+lm.fit5=lm(medv~poly(lstat,5),data=Boston)
+summary(lm.fit5)
