@@ -21,4 +21,26 @@ confint(lm.fit)
 predict(lm.fit,data.frame(lstat=c(5,10,15)),interval="confidence")
 predict(lm.fit,data.frame(lstat=c(5,10,15)),interval="prediction")
 
-# lkjdflk
+# Basic plot
+# The data is not linear
+plot(Boston$lstat,Boston$medv)
+abline(lm.fit, lwd=3)
+abline(lm.fit, lw=3, col="red")
+plot(Boston$lstat,Boston$medv,col="red")
+plot(Boston$lstat,Boston$medv,pch=20)
+plot(Boston$lstat,Boston$medv,pch="+")
+plot(1:20,1:20,pch=1:20)
+
+#Splitting into multiple plots
+par(mfrow=c(2,2))
+plot(lm.fit)
+
+
+plot(predict(lm.fit),residuals(lm.fit))
+plot(predict(lm.fit))
+plot(residuals(lm.fit))
+plot(lm.fit)
+
+plot(hatvalues(lm.fit))
+which.max(hatvalues(lm.fit))
+
