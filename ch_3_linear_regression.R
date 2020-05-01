@@ -1,10 +1,10 @@
 # Chapter 3: Linear Regression ----
 # 3.6 Lab: Linear Regression ====
-### Libraries ####
+### 3.6.1 Libraries ####
 library(MASS)
 library(ISLR)
 
-### 3.6.2 Simple Linear Regression
+### 3.6.2 Simple Linear Regression ####
 fix(Boston)
 names(Boston)
 ?Boston
@@ -43,4 +43,19 @@ plot(lm.fit)
 
 plot(hatvalues(lm.fit))
 which.max(hatvalues(lm.fit))
+
+### 3.6.3 Multiple Linear Regression ####
+# On two variables
+lm.fit= lm(medv~lstat+age,data=Boston)
+summary(lm.fit) # All predictors are significant, F statistic is significant and R squared low
+
+# On all variables
+lm.fit = lm(medv~.,data=Boston)
+summary(lm.fit)
+# Rsquared is definitely bette.  age and indus not significant
+
+
+### 3.6.4 Interaction Terms #### 
+summary(lm(medv~lstat*age,data=Boston))
+
 
