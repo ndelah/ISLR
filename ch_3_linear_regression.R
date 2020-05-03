@@ -1,10 +1,11 @@
 # Chapter 3: Linear Regression ----
-# 3.6 Lab: Linear Regression ====
-### 3.6.1 Libraries ####
+# 3.6 Lab: Linear Regression ===
+# sdlksjdflkjsdflkjsdf ###
+# 3.6.1 Libraries ####
 library(MASS)
 library(ISLR)
 
-### 3.6.2 Simple Linear Regression ####
+# 3.6.2 Simple Linear Regression ####
 fix(Boston)
 names(Boston)
 ?Boston
@@ -43,7 +44,7 @@ plot(lm.fit)
 plot(hatvalues(lm.fit))
 which.max(hatvalues(lm.fit))
 
-### 3.6.3 Multiple Linear Regression ####
+# 3.6.3 Multiple Linear Regression ####
 # On two variables
 lm.fit= lm(medv~lstat+age,data=Boston)
 summary(lm.fit) # All predictors are significant, F statistic is significant and R squared low
@@ -54,11 +55,11 @@ summary(lm.fit)
 # Rsquared is definitely bette.  age and indus not significant
 
 
-### 3.6.4 Interaction Terms #### 
+# 3.6.4 Interaction Terms #### 
 summary(lm(medv~lstat*age,data=Boston))
 
 
-### 3.6.5 Non-linear Transformations of the Predictors #### 
+# 3.6.5 Non-linear Transformations of the Predictors #### 
 # I() is a necessary wrapping to create non linear transformations as ^ has diffrent meaning
 lm.fit2 = lm(medv~lstat +I(lstat^2),data=Boston)
 summary(lm.fit2)
@@ -69,3 +70,8 @@ plot(lm.fit2)
 # Higher order polynomials
 lm.fit5=lm(medv~poly(lstat,5),data=Boston)
 summary(lm.fit5)
+
+### 3.6.6 Qualitative Predictors
+
+
+# 3.7 Exercises ----
